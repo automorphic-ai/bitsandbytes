@@ -51,13 +51,13 @@ def get_cuda_bnb_library_path(cuda_specs: CUDASpecs) -> Path:
         # `library_name_stem` will now be e.g. `libbitsandbytes_cuda`;
         # let's tack the new version number and the original extension back on.
         library_name = f"{library_name_stem}{override_value}.{library_name_ext}"
-        logger.warning(
-            f"WARNING: BNB_CUDA_VERSION={override_value} environment variable detected; loading {library_name}.\n"
-            "This can be used to load a bitsandbytes version that is different from the PyTorch CUDA version.\n"
-            "If this was unintended set the BNB_CUDA_VERSION variable to an empty string: export BNB_CUDA_VERSION=\n"
-            "If you use the manual override make sure the right libcudart.so is in your LD_LIBRARY_PATH\n"
-            "For example by adding the following to your .bashrc: export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:<path_to_cuda_dir/lib64\n",
-        )
+        # logger.warning(
+        #     f"WARNING: BNB_CUDA_VERSION={override_value} environment variable detected; loading {library_name}.\n"
+        #     "This can be used to load a bitsandbytes version that is different from the PyTorch CUDA version.\n"
+        #     "If this was unintended set the BNB_CUDA_VERSION variable to an empty string: export BNB_CUDA_VERSION=\n"
+        #     "If you use the manual override make sure the right libcudart.so is in your LD_LIBRARY_PATH\n"
+        #     "For example by adding the following to your .bashrc: export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:<path_to_cuda_dir/lib64\n",
+        # )
 
     return PACKAGE_DIR / library_name
 
